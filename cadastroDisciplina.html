@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <title>Cadastro de disciplina</title>
+</head>
+<body>
+    <header>
+        <nav class="forms">
+            <h3 id="logo">Sistema de cadastro</h3>
+            <a class="login" href="index.html">Sair</a>
+        </nav>
+        
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card"><!-- Inicio de card-->
+                    <div class="card-header">
+                        <h5 class="card-title">
+                            Cadastro de Discipplina
+                        </h5>
+                    </div><!-- Inicio do Cabeçalho-->
+                    <div class="card-body"><!-- Inicio do body-card-->
+                        <form action="">
+                            <div class="form-row">
+                                <div class="form-group col-md-8 mb-3">
+                                    <label for="nomeCurso">Nome da disciplina</label>
+                                    <input class="form-control" type="text" name="nomeCurso" id="nomeCurso">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="ch">Carga Horaria</label>
+                                    <div class="input-group mb-3">
+                                        <input type="number" name="ch" id="ch" class="form-control" placeholder="">
+                                        <div class="input-group-append" >
+                                            <span class="input-group-text">Hora(s)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="observacao">Observação</label>
+                                    <textarea class="form-control" name="observacao" id="observacao"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div><!-- fim do body-card-->
+                    <div class="card-footer">
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <a href="index.html" class="btn btn-outline-primary">Voltar</a>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-outline-success">Gravar</button>
+                            </div>
+                        </div>
+                    </div><!-- fim de card-footer -->
+                </div><!-- fim do card-->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" data-backdrop="static" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Cadastro</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="alert alert-success" role="alert">
+                <p>Dados cadastrados com sucesso</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              
+              <a href="index.html" class="btn btn-primary">Voltar ao index</a>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

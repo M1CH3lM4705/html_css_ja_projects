@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/app.js"></script>
+    <title>Cadastro de Aluno</title>
+</head>
+<body>
+    <header>
+        <nav class="forms">
+            <h3 id="logo">Sistema de cadastro</h3>
+            <a class="login" href="index.html">Sair</a>
+        </nav>
+        
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form autocomplete="off" name="cadAluno" action="./confirmed/table.html">
+                    <div class="card"><!-- Inicio de card-->
+                        <div class="card-header"><!-- Inicio do Cabeçalho-->
+                            <h5 class="card-title">
+                                Cadastro de Aluno
+                            </h5>
+                        </div>
+                        <div class="card-body"><!-- Inicio do body-card-->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="nome">Nome</label>
+                                    <input class="form-control" name="nome" id="nome" type="text">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="sobrenome">Sobrenome</label>
+                                    <input class="form-control" name="sobrenome" id="sobrenome" type="text">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="cpf">CPF</label>
+                                    <input class="form-control" name="cpf" id="cpf" type="text" onblur="formataCPF(this)" pattern="[0-9]{11}" placeholder="000.000.000-00"/>
+                                    
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="dtNascimento">Data de Nascimento</label>
+                                    <input class="form-control" name="dtNascimento" id="dtNascimento" type="date">
+                                </div>
+
+                                <div class="form-group col-md-4" >
+                                    <label>Selecione o sexo</label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" name="sexo" id="sexo1" value="Masculino" type="radio" checked>
+                                        <label class="form-check-label" for="sexo">Masculino</label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <input class="form-check-input" name="sexo" id="sexo2" value="Feminino" type="radio">
+                                        <label class="form-check-label" for="sexo">Femenino</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-4 mb-3">
+                                        <label for="tel">Telefone</label>
+                                        <input class="form-control" name="tel" id="tel" onblur="formataTel(this)" type="textr" placeholder="(00)0000-0000">
+                                        
+                                    </div>  
+                                    <div class="form-group col-md-4 mb-3">
+                                        <label for="email">E-mail</label>
+                                        <input class="form-control" name="email" id="email" type="email" placeholder="exemplo@email.com">
+                                    </div>
+                                    <div class="form-group col-md-4 mb-3">
+                                        <label for="matricula">Matrícula</label>
+                                        <input class="form-control" name="matricula" id="matricula" type="number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <label for="endereco" clas="card-title">Endereço</label>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                    <input class="form-control" name="rua" id="rua" type="text" placeholder="Rua">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <input class="form-control" name="numCasa" id="numCasa" type="text" placeholder="Número">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <input class="form-control" name="bairro" id="bairro" type="text" placeholder="Bairro">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--fim card-->
+                                </div>
+                                
+                            </div>
+                            <div class="form-row">
+                                <div class="card-body">
+                                    <label for="observacao">Observação</label>
+                                    <textarea class="form-control" name="observacao" id="observacao"></textarea>
+                                </div>
+                            </div>
+                        </div><!-- fim do body-card-->
+                        <div class="card-footer">
+                            <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    <a href="index.html" class="btn btn-outline-primary">Voltar</a>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <button type="button" onclick="AssignValues()" class="btn btn-outline-success">Gravar</button>
+                                </div>
+                            </div>
+                        </div><!-- fim de card-footer -->
+                    </div><!-- fim do card-->
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" data-backdrop="static" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Cadastro</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="alert alert-success" role="alert">
+                <p>Dados cadastrados com sucesso</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              
+              <a href="index.html" class="btn btn-primary">Voltar ao index</a>
+            </div>
+          </div>
+        </div>
+    </div>
+</body>
+</html>
