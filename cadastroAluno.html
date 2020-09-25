@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <nav class="forms">
+        <nav class="forms needs-validation" novalidate>
             <h3 id="logo">Sistema de cadastro</h3>
             <a class="login" href="index.html">Sair</a>
         </nav>
@@ -32,11 +32,17 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="nome">Nome</label>
-                                    <input class="form-control" name="nome" id="nome" type="text">
+                                    <input class="form-control" name="nome" id="nome" type="text" required>
+                                    <div class="invalid-tooltip">
+                                        Esse campo é obrigatorio!
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="sobrenome">Sobrenome</label>
-                                    <input class="form-control" name="sobrenome" id="sobrenome" type="text">
+                                    <input class="form-control" name="sobrenome" id="sobrenome" type="text" required>
+                                    <div class="invalid-tooltip">
+                                        Esse campo é obrigatorio!
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="cpf">CPF</label>
