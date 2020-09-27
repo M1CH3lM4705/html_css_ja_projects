@@ -167,3 +167,23 @@ section{
 .box input[type = "submit"]:hover{
     background:#2ecc71;
 }
+
+@media (max-width: 762px){
+    #logo{
+        grid-column: 2/3;
+        font-size:9px;
+   }
+   .login{
+       font-size: 9px;
+   }
+    .headline{
+        position:absolute;
+        top:70%;
+        left:20%;
+        font-size:15px; 
+        transform: translate(-20%, -70%);
+        color:white;
+        z-index: 3;
+        -webkit-transform: translate(-20%, -70%);
+    }
+}

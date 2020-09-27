@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/bootstrap.js"></script>
     <title>Cadastro de curso</title>
 </head>
 <body>
@@ -17,53 +15,57 @@
         </nav>
         
     </header>
-    <div class="container">
+    <div class="container mt-1">
         <div class="row">
             <div class="col">
-                <div class="card"><!-- Inicio de card-->
-                    <div class="card-header">
-                        <h5 class="card-title">
-                            Cadastro de Curso
-                        </h5>
-                    </div><!-- Inicio do Cabeçalho-->
-                    <div class="card-body"><!-- Inicio do body-card-->
-                        <form action="">
-                            <div class="form-row">
-                                <div class="form-group col-md-8 mb-3">
-                                    <label for="nomeCurso">Nome do curso</label>
-                                    <input class="form-control" type="text" name="nomeCurso" id="nomeCurso">
+                <form action="" class="needs-validation" novalidate>
+                    <div class="card"><!-- Inicio de card-->
+                        <div class="card-header">
+                            <h5 class="card-title">
+                                Cadastro de Curso
+                            </h5>
+                        </div><!-- Inicio do Cabeçalho-->
+                        <div class="card-body"><!-- Inicio do body-card-->
+                                <div class="form-row">
+                                    <div class="form-group col-md-8 mb-3">
+                                        <label for="nomeCurso">Nome do curso</label>
+                                        <input class="form-control" type="text" name="nomeCurso" id="nomeCurso"required>
+                                        <div class="invalid-tooltip">
+                                            Esse campo e obrigatorio!
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="turno">Turno</label>
+                                        <select class="custom-select" name="turno" id="turno" required>
+                                            <option value=""></option>
+                                            <option value="Matutino">Matutino</option>
+                                            <option value="Verspetino">Verspetino</option>
+                                            <option value="Noturno>">Noturno</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="turno">Turno</label>
-                                    <select class="form-control" name="turno" id="turno">
-                                        <option value="Matutino">Matutino</option>
-                                        <option value="Verspetino">Verspetino</option>
-                                        <option value="Noturno>">Noturno</option>
-                                    </select>
+                                <div class="form-row">
+                                    
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="observacao">Observação</label>
+                                        <textarea class="form-control" name="observacao" id="observacao"></textarea>
+                                    </div>
+                                </div>
+                        </div><!-- fim do body-card-->
+                        <div class="card-footer">
+                            <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    <a href="index.html" class="btn btn-outline-primary">Voltar</a>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <button type="submit" class="btn btn-outline-success">Gravar</button>
                                 </div>
                             </div>
-                            <div class="form-row">
-                                
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="observacao">Observação</label>
-                                    <textarea class="form-control" name="observacao" id="observacao"></textarea>
-                                </div>
-                            </div>
-                        </form>
-                    </div><!-- fim do body-card-->
-                    <div class="card-footer">
-                        <div class="form-row">
-                            <div class="form-group col-md-2">
-                                <a href="index.html" class="btn btn-outline-primary">Voltar</a>
-                            </div>
-                            <div class="form-group col-md-2">
-                                <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-outline-success">Gravar</button>
-                            </div>
-                        </div>
-                    </div><!-- fim de card-footer -->
-                </div><!-- fim do card-->
+                        </div><!-- fim de card-footer -->
+                    </div><!-- fim do card-->
+                </form>
             </div>
         </div>
     </div>
@@ -77,9 +79,12 @@
               </button>
             </div>
             <div class="modal-body">
-              <div class="alert alert-success" role="alert">
-                <p>Dados cadastrados com sucesso</p>
-              </div>
+                <div class="alert alert-success alert-dismissible fade show"  role="alert">
+                    <strong>Gravado com sucesso</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
             </div>
             <div class="modal-footer">
               
@@ -88,5 +93,27 @@
           </div>
         </div>
     </div> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+
+    </script>
 </body>
 </html>

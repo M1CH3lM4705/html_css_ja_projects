@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/app.js"></script>
     <title>Cadastro de Aluno</title>
 </head>
 <body>
@@ -18,10 +15,10 @@
         </nav>
         
     </header>
-    <div class="container">
+    <div class="container mt-1">
         <div class="row">
             <div class="col">
-                <form autocomplete="off" name="cadAluno" action="./confirmed/table.html">
+                <form class="needs-validation" autocomplete="off" name="cadAluno" action="./confirmed/table.html" novalidate>
                     <div class="card"><!-- Inicio de card-->
                         <div class="card-header"><!-- Inicio do Cabeçalho-->
                             <h5 class="card-title">
@@ -31,21 +28,21 @@
                         <div class="card-body"><!-- Inicio do body-card-->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="nome">Nome</label>
-                                    <input class="form-control" name="nome" id="nome" type="text">
+                                    <label for="nome"><em class="text-danger">*</em> Nome</label>
+                                    <input class="form-control" name="nome" id="nome" type="text" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="sobrenome">Sobrenome</label>
-                                    <input class="form-control" name="sobrenome" id="sobrenome" type="text">
+                                    <input class="form-control" name="sobrenome" id="sobrenome" type="text" required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="cpf">CPF</label>
-                                    <input class="form-control" name="cpf" id="cpf" type="text" onblur="formataCPF(this)" pattern="[0-9]{11}" placeholder="000.000.000-00"/>
+                                    <input class="form-control" name="cpf" id="cpf" type="text" onblur="formataCPF(this)" pattern="[0-9]{11}" placeholder="000.000.000-00" required/>
                                     
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="dtNascimento">Data de Nascimento</label>
-                                    <input class="form-control" name="dtNascimento" id="dtNascimento" type="date">
+                                    <input class="form-control" name="dtNascimento" id="dtNascimento" type="date" required>
                                 </div>
 
                                 <div class="form-group col-md-4" >
@@ -65,16 +62,17 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-4 mb-3">
                                         <label for="tel">Telefone</label>
-                                        <input class="form-control" name="tel" id="tel" onblur="formataTel(this)" type="textr" placeholder="(00)0000-0000">
+                                        <input class="form-control" name="tel" id="tel" 
+                                        onblur="formataTel(this)" type="textr" placeholder="(00)0000-0000" required>
                                         
                                     </div>  
                                     <div class="form-group col-md-4 mb-3">
                                         <label for="email">E-mail</label>
-                                        <input class="form-control" name="email" id="email" type="email" placeholder="exemplo@email.com">
+                                        <input class="form-control" name="email" id="email" type="email" placeholder="exemplo@email.com" required>
                                     </div>
                                     <div class="form-group col-md-4 mb-3">
                                         <label for="matricula">Matrícula</label>
-                                        <input class="form-control" name="matricula" id="matricula" type="number">
+                                        <input class="form-control" name="matricula" id="matricula" type="number" required>
                                     </div>
                                 </div>
                             </div>
@@ -87,13 +85,13 @@
                                         <div class="card-body">
                                             <div class="form-row">
                                                 <div class="form-group col-md-4">
-                                                    <input class="form-control" name="rua" id="rua" type="text" placeholder="Rua">
+                                                    <input class="form-control" name="rua" id="rua" type="text" placeholder="Rua" required>
                                                 </div>
                                                 <div class="form-group col-md-4">
-                                                    <input class="form-control" name="numCasa" id="numCasa" type="text" placeholder="Número">
+                                                    <input class="form-control" name="numCasa" id="numCasa" type="text" placeholder="Número" required>
                                                 </div>
                                                 <div class="form-group col-md-4">
-                                                    <input class="form-control" name="bairro" id="bairro" type="text" placeholder="Bairro">
+                                                    <input class="form-control" name="bairro" id="bairro" type="text" placeholder="Bairro" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -114,7 +112,7 @@
                                     <a href="index.html" class="btn btn-outline-primary">Voltar</a>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <button type="button" onclick="AssignValues()" class="btn btn-outline-success">Gravar</button>
+                                    <button type="submit"  class="btn btn-outline-success">Gravar</button>
                                 </div>
                             </div>
                         </div><!-- fim de card-footer -->
@@ -133,9 +131,12 @@
               </button>
             </div>
             <div class="modal-body">
-              <div class="alert alert-success" role="alert">
-                <p>Dados cadastrados com sucesso</p>
-              </div>
+                <div class="alert alert-success alert-dismissible fade show"  role="alert">
+                    <strong>Gravado com sucesso</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
             </div>
             <div class="modal-footer">
               
@@ -144,5 +145,28 @@
           </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        (function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+
+    </script>
 </body>
 </html>
